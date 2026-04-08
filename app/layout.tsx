@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Be_Vietnam_Pro } from "next/font/google";
+import { Fredoka, Nunito } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const fredoka = Fredoka({
   variable: "--font-headline",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const beVietnam = Be_Vietnam_Pro({
+const nunito = Nunito({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,8 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${plusJakarta.variable} ${beVietnam.variable} antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${fredoka.variable} ${nunito.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground font-body">
         {children}

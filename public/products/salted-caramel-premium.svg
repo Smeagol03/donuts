@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg-salted-caramel-premium" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#D4A574" />
+      <stop offset="100%" stop-color="#BF8C5F" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bg-salted-caramel-premium)" />
+  
+  <!-- Donut base -->
+  <circle cx="200" cy="180" r="120" fill="#D4A373" />
+  
+  <!-- Donut hole -->
+  <circle cx="200" cy="180" r="45" fill="#BF8C5F" />
+  
+  <!-- Glaze -->
+  <circle cx="200" cy="180" r="115" fill="#D4A574" opacity="0.67" />
+  
+  <!-- Sprinkles -->
+    <circle cx="300.0" cy="180.0" r="4" fill="#FF6B8A" />
+    <circle cx="290.1" cy="209.3" r="4" fill="#FFD54F" />
+    <circle cx="288.2" cy="244.1" r="4" fill="#81C784" />
+    <circle cx="252.9" cy="252.9" r="4" fill="#64B5F6" />
+    <circle cx="233.3" cy="282.6" r="4" fill="#FFFFFF" />
+    <circle cx="200.0" cy="276.6" r="4" fill="#FF6B8A" />
+    <circle cx="169.7" cy="273.1" r="4" fill="#FFD54F" />
+    <circle cx="137.1" cy="266.5" r="4" fill="#81C784" />
+    <circle cx="126.9" cy="233.1" r="4" fill="#64B5F6" />
+    <circle cx="95.8" cy="213.8" r="4" fill="#FFFFFF" />
+    <circle cx="106.4" cy="180.0" r="4" fill="#FF6B8A" />
+    <circle cx="103.6" cy="148.7" r="4" fill="#FFD54F" />
+    <circle cx="115.8" cy="118.8" r="4" fill="#81C784" />
+    <circle cx="146.1" cy="105.8" r="4" fill="#64B5F6" />
+    <circle cx="166.0" cy="75.4" r="4" fill="#FFFFFF" />
+    <circle cx="200.0" cy="88.7" r="4" fill="#FF6B8A" />
+    <circle cx="232.4" cy="80.4" r="4" fill="#FFD54F" />
+    <circle cx="259.2" cy="98.5" r="4" fill="#81C784" />
+    <circle cx="276.2" cy="124.7" r="4" fill="#64B5F6" />
+    <circle cx="303.9" cy="146.2" r="4" fill="#FFFFFF" />
+
+  <!-- Product label -->
+  <text x="200" y="360" font-family="Arial" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));">
+    Salted Caramel
+  </text>
+</svg>

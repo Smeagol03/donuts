@@ -5,7 +5,7 @@
     "name": "Strawberry Glaze",
     "description": "Donat lembut dengan glasir stroberi manis dan taburan gula halus. Perpaduan sempurna antara rasa manis dan sedikit asam yang menyegarkan.",
     "price": 15000,
-    "images": ["/products/strawberry-glaze.jpg"],
+    "images": ["/products/strawberry-glaze.svg"],
     "category": "glazed",
     "featured": true,
     "bestSeller": true
@@ -16,7 +16,7 @@
     "name": "Chocolate Glaze",
     "description": "Donat klasik dengan glasir cokelat premium Belgium. Tekstur lembut dan rasa cokelat yang kaya membuat ketagihan.",
     "price": 18000,
-    "images": ["/products/chocolate-glaze.jpg"],
+    "images": ["/products/chocolate-glaze.svg"],
     "category": "glazed",
     "featured": true,
     "variants": [
@@ -30,7 +30,7 @@
     "name": "Vanilla Sugar",
     "description": "Donat sederhana dengan taburan gula vanilla. Kesederhanaan yang memanjakan lidah dengan aroma vanilla yang harum.",
     "price": 12000,
-    "images": ["/products/vanilla-sugar.jpg"],
+    "images": ["/products/vanilla-sugar.svg"],
     "category": "glazed",
     "featured": false
   },
@@ -40,7 +40,7 @@
     "name": "Caramel Glaze",
     "description": "Donat dengan glasir caramel butter yang creamy. Dipadukan dengan taburan sea salt untuk keseimbangan rasa.",
     "price": 20000,
-    "images": ["/products/caramel-glaze.jpg"],
+    "images": ["/products/caramel-glaze.svg"],
     "category": "glazed",
     "featured": true,
     "bestSeller": true
@@ -51,7 +51,7 @@
     "name": "Strawberry Filled",
     "description": "Donat berisi selai stroberi asli yang meledak di mulut. Dengan glasir strawberry di atasnya untuk rasa yang lebih intens.",
     "price": 22000,
-    "images": ["/products/strawberry-filled.jpg"],
+    "images": ["/products/strawberry-filled.svg"],
     "category": "filled",
     "featured": true
   },
@@ -61,7 +61,7 @@
     "name": "Chocolate Filled",
     "description": "Donat dengan isian chocolate ganache yang melty. Untuk pecinta cokelat sejati yang menginginkan lebih.",
     "price": 22000,
-    "images": ["/products/chocolate-filled.jpg"],
+    "images": ["/products/chocolate-filled.svg"],
     "category": "filled",
     "featured": true,
     "bestSeller": true
@@ -72,7 +72,7 @@
     "name": "Custard Filled",
     "description": "Donat klasik berisi vanilla custard yang creamy. Tekstur lembut dengan filling yang pas di setiap gigitan.",
     "price": 20000,
-    "images": ["/products/custard-filled.jpg"],
+    "images": ["/products/custard-filled.svg"],
     "category": "filled",
     "featured": false
   },
@@ -82,7 +82,7 @@
     "name": "Blueberry Filled",
     "description": "Donat berisi selai blueberry asli dengan potongan buah. Kombinasi manis dan asam yang sempurna.",
     "price": 23000,
-    "images": ["/products/blueberry-filled.jpg"],
+    "images": ["/products/blueberry-filled.svg"],
     "category": "filled",
     "featured": false
   },
@@ -92,7 +92,7 @@
     "name": "Matcha Premium",
     "description": "Donat premium dengan glasir matcha Uji grade A. Dipadukan dengan white chocolate drizzle dan red bean filling.",
     "price": 35000,
-    "images": ["/products/matcha-premium.jpg"],
+    "images": ["/products/matcha-premium.svg"],
     "category": "premium",
     "featured": true,
     "bestSeller": true
@@ -103,7 +103,7 @@
     "name": "Salted Caramel Premium",
     "description": "Donat premium dengan homemade salted caramel dan taburan almond panggang. Rich dan sophisticated.",
     "price": 32000,
-    "images": ["/products/salted-caramel-premium.jpg"],
+    "images": ["/products/salted-caramel-premium.svg"],
     "category": "premium",
     "featured": true
   },
@@ -113,7 +113,7 @@
     "name": "Tiramisu Premium",
     "description": "Donat terinspirasi dari dessert Italia. Dengan mascarpone cream, cocoa dusting, dan hint of coffee.",
     "price": 38000,
-    "images": ["/products/tiramisu-premium.jpg"],
+    "images": ["/products/tiramisu-premium.svg"],
     "category": "premium",
     "featured": false
   },
@@ -123,7 +123,7 @@
     "name": "Red Velvet Premium",
     "description": "Donat red velvet dengan cream cheese frosting. Dipadukan dengan white chocolate chunks.",
     "price": 35000,
-    "images": ["/products/red-velvet-premium.jpg"],
+    "images": ["/products/red-velvet-premium.svg"],
     "category": "premium",
     "featured": false
   }

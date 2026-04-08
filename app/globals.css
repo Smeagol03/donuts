@@ -1,32 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme inline {
-  --font-headline: "Plus Jakarta Sans";
-  --font-body: "Be Vietnam Pro";
-  --color-background: #fff8f5;
-  --color-foreground: #1d1b1a;
-  --color-primary: #95416e;
-  --color-primary-container: #f28ebf;
-  --color-primary-fixed: #ffd8e7;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #71234f;
-  --color-secondary: #665f34;
-  --color-secondary-container: #eee3ad;
-  --color-on-secondary-container: #6c653a;
-  --color-tertiary: #79573f;
-  --color-tertiary-container: #cfa589;
-  --color-surface: #fff8f5;
-  --color-surface-low: #f9f2ef;
-  --color-surface-container: #f3ece9;
-  --color-surface-high: #eee7e4;
-  --color-surface-highest: #e8e1de;
-  --color-on-surface: #1d1b1a;
-  --color-on-surface-variant: #524249;
-  --color-outline: #857279;
-  --color-outline-variant: #d7c1c8;
-  --color-error: #ba1a1a;
-  --color-error-container: #ffdad6;
-  --radius-sm: 0.5rem;
+  --font-headline: "Fredoka", sans-serif;
+  --font-body: "Nunito", sans-serif;
+  --color-background: #FEF3C7;
+  --color-foreground: #78350F;
+  --color-primary: #92400E;
+  --color-primary-container: #FDBA74;
+  --color-primary-fixed: #FED7AA;
+  --color-on-primary: #FFFFFF;
+  --color-on-primary-container: #78350F;
+  --color-secondary: #B45309;
+  --color-secondary-container: #FDE68A;
+  --color-on-secondary-container: #92400E;
+  --color-tertiary: #D97706;
+  --color-tertiary-container: #FEF3C7;
+  --color-surface: #FFFBEB;
+  --color-surface-low: #FEF3C7;
+  --color-surface-container: #FDE68A;
+  --color-surface-high: #FDBA74;
+  --color-surface-highest: #FED7AA;
+  --color-on-surface: #78350F;
+  --color-on-surface-variant: #92400E;
+  --color-outline: #D97706;
+  --color-outline-variant: #FDBA74;
+  --color-error: #DC2626;
+  --color-error-container: #FECACA;
+  --radius-sm: 0.75rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;
@@ -35,8 +36,8 @@
 
 @layer base {
   :root {
-    --background: #fff8f5;
-    --foreground: #1d1b1a;
+    --background: #FEF3C7;
+    --foreground: #78350F;
   }
   
   html {
@@ -69,5 +70,97 @@
     50% {
       transform: translateY(-20px);
     }
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+  
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+  }
+  
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .animate-spin-slow {
+    animation-duration: 120s !important;
+  }
+}
+
+@media (hover: none) {
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 1 !important;
+  }
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .animate-float,
+  .animate-bounce-subtle,
+  .animate-wiggle,
+  .animate-fade-in {
+    animation: none !important;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
