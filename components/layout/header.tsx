@@ -38,7 +38,7 @@ export function Header() {
               href="/"
               className="flex items-center gap-2 group"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-primary-container flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <svg viewBox="0 0 24 24" className="w-6 h-6 text-white" fill="none">
                   <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="4" />
                   <circle cx="12" cy="12" r="4" fill="currentColor" />
@@ -60,7 +60,7 @@ export function Header() {
             <div className="flex items-center gap-3">
               <Link
                 href="/cart"
-                className="relative inline-flex items-center justify-center h-11 px-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full font-medium transition-all hover:brightness-110 hover:shadow-lg hover:shadow-primary/30 active:scale-95"
+                className="relative inline-flex items-center justify-center h-11 px-4 bg-linear-to-br from-primary to-primary-container text-on-primary rounded-full font-medium transition-all hover:brightness-110 hover:shadow-lg hover:shadow-primary/30 active:scale-95"
               >
                 <ShoppingBag className="w-5 h-5" />
                 <span className="ml-2 hidden sm:inline">Keranjang</span>
@@ -136,7 +136,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
       href={href}
       className={cn(
         "relative text-sm font-medium text-on-surface-variant hover:text-primary transition-colors py-2",
-        "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-primary-container",
+        "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-linear-to-r after:from-primary after:to-primary-container",
         "after:transition-all after:duration-300 hover:after:w-full"
       )}
     >

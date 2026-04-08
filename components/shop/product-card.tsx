@@ -65,7 +65,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Image Container */}
         <div className="relative overflow-hidden">
           <div 
-            className={`aspect-square bg-gradient-to-br ${colors.bg} flex items-center justify-center transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
+            className={`aspect-square bg-linear-to-br ${colors.bg} flex items-center justify-center transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
           >
             {/* Playful Donut SVG */}
             <svg 
@@ -128,7 +128,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </svg>
 
             {/* Hover/Touch Overlay with View Icon */}
-            <div className={`absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent flex items-end justify-center pb-4 sm:pb-8 transition-opacity duration-300 opacity-100 sm:opacity-0 ${isHovered ? 'sm:opacity-100' : ''}`}>
+            <div className={`absolute inset-0 bg-linear-to-t from-black/30 via-black/10 to-transparent flex items-end justify-center pb-4 sm:pb-8 transition-opacity duration-300 opacity-100 sm:opacity-0 ${isHovered ? 'sm:opacity-100' : ''}`}>
               <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5 sm:gap-2 text-primary font-medium text-xs sm:text-sm shadow-lg">
                 <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span className="hidden xs:inline">Lihat Detail</span>
@@ -160,7 +160,7 @@ export function ProductCard({ product }: ProductCardProps) {
               size="sm"
               onClick={handleAddToCart}
               disabled={isAdding}
-              className="shadow-xl bg-primary hover:bg-primary-container hover:text-primary text-white border-2 border-white rounded-full w-11 h-11 sm:w-12 sm:h-12 min-h-[44px] min-w-[44px] flex items-center justify-center p-0 transition-all duration-300 hover:scale-110 active:scale-95"
+              className="shadow-xl bg-primary hover:bg-primary-container hover:text-primary text-white border-2 border-white rounded-full w-11 h-11 sm:w-12 sm:h-12 min-h-11 min-w-11 flex items-center justify-center p-0 transition-all duration-300 hover:scale-110 active:scale-95"
             >
               {isAdding ? (
                 <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">

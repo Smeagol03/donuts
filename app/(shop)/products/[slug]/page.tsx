@@ -55,7 +55,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image */}
-          <div className="aspect-square bg-gradient-to-br from-surface-container to-surface-high rounded-3xl overflow-hidden flex items-center justify-center">
+          <div className="aspect-square bg-linear-to-br from-surface-container to-surface-high rounded-3xl overflow-hidden flex items-center justify-center">
             <span className="text-[200px]">🍩</span>
           </div>
 

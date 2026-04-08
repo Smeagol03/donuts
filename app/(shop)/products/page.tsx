@@ -19,7 +19,7 @@ export default async function ProductsPage({
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-surface to-background">
+    <div className="min-h-screen bg-linear-to-b from-background via-surface to-background">
       {/* Decorative Elements - Hidden on mobile */}
       <div className="hidden sm:block fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
@@ -80,7 +80,7 @@ export default async function ProductsPage({
             <Link
               key={cat.key ?? "all"}
               href={cat.key ? `/products?category=${cat.key}` : "/products"}
-              className={`group flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-headline font-semibold text-sm sm:text-base transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
+              className={`group p-10 flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-3 font-headline font-semibold text-sm sm:text-base transition-all duration-300 whitespace-nowrap shrink-0 ${
                 category === cat.key || (!category && !cat.key)
                   ? "bg-primary text-white shadow-lg scale-[1.02]"
                   : "bg-white text-on-surface-variant hover:bg-surface-container hover:text-primary shadow-md hover:shadow-lg"
@@ -126,7 +126,7 @@ export default async function ProductsPage({
 
         {/* Bottom CTA */}
         <div className="mt-12 sm:mt-16 text-center">
-          <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-tertiary/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12">
+          <div className="bg-linear-to-r from-primary/10 via-secondary/10 to-tertiary/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12">
             <h2 className="font-headline font-bold text-xl sm:text-2xl md:text-3xl text-primary mb-2 sm:mb-3">
               Ingin Memesan dalam Jumlah Banyak?
             </h2>

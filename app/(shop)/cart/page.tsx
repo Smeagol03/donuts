@@ -151,7 +151,7 @@ _Terima kasih telah berbelanja di Donatku!_`;
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Product Image */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-surface-container to-surface-high rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-linear-to-br from-surface-container to-surface-high rounded-lg sm:rounded-xl flex items-center justify-center shrink-0">
                   <span className="text-3xl sm:text-4xl">🍩</span>
                 </div>
                 
@@ -181,7 +181,7 @@ _Terima kasih telah berbelanja di Donatku!_`;
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <button
                       onClick={() => updateQuantity(item.productId, item.variantId, item.quantity - 1)}
-                      className="w-11 h-11 sm:w-9 sm:h-9 min-h-[44px] min-w-[44px] rounded-full bg-surface-container hover:bg-surface-high active:bg-primary/10 transition-colors flex items-center justify-center text-on-surface font-bold touch-manipulation"
+                      className="w-11 h-11 sm:w-9 sm:h-9 min-h-11 min-w-11 rounded-full bg-surface-container hover:bg-surface-high active:bg-primary/10 transition-colors flex items-center justify-center text-on-surface font-bold touch-manipulation"
                       aria-label="Kurangi jumlah"
                     >
                       −
@@ -189,7 +189,7 @@ _Terima kasih telah berbelanja di Donatku!_`;
                     <span className="w-6 sm:w-8 text-center text-on-surface font-semibold text-sm sm:text-base">{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.productId, item.variantId, item.quantity + 1)}
-                      className="w-11 h-11 sm:w-9 sm:h-9 min-h-[44px] min-w-[44px] rounded-full bg-surface-container hover:bg-surface-high active:bg-primary/10 transition-colors flex items-center justify-center text-on-surface font-bold touch-manipulation"
+                      className="w-11 h-11 sm:w-9 sm:h-9 min-h-11 min-w-11 rounded-full bg-surface-container hover:bg-surface-high active:bg-primary/10 transition-colors flex items-center justify-center text-on-surface font-bold touch-manipulation"
                       aria-label="Tambah jumlah"
                     >
                       +
@@ -202,7 +202,7 @@ _Terima kasih telah berbelanja di Donatku!_`;
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-md border-2 border-primary/10 lg:sticky lg:top-24">
+            <div className="bg-white p-4 sm:p-6 shadow-md border-2 border-primary/10 lg:sticky lg:top-24">
               <h2 className="text-lg sm:text-xl font-bold font-headline text-on-surface mb-4 sm:mb-6">
                 Data Pengiriman
               </h2>
@@ -220,7 +220,7 @@ _Terima kasih telah berbelanja di Donatku!_`;
                   value={customer.name}
                   onChange={(e) => setCustomer({ ...customer, name: e.target.value })}
                   error={errors.name}
-                  placeholder="John Doe"
+                  placeholder="Nama"
                 />
 
                 <Input
@@ -238,7 +238,7 @@ _Terima kasih telah berbelanja di Donatku!_`;
                   value={customer.address}
                   onChange={(e) => setCustomer({ ...customer, address: e.target.value })}
                   error={errors.address}
-                  placeholder="Jl. Contoh No. 123, Jakarta"
+                  placeholder="....."
                   rows={3}
                 />
 
@@ -289,7 +289,7 @@ _Terima kasih telah berbelanja di Donatku!_`;
           <div className="flex gap-3 sm:gap-4">
             <Link
               href="/products"
-              className="flex-shrink-0 px-4 py-3 bg-surface-container text-on-surface rounded-xl font-semibold text-sm hover:bg-surface-high active:scale-95 transition-all"
+              className="shrink-0 px-4 py-3 bg-surface-container text-on-surface rounded-xl font-semibold text-xs hover:bg-surface-high active:scale-95 transition-all"
             >
               Tambah
             </Link>

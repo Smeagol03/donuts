@@ -50,7 +50,7 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
         className={`h-14 px-8 rounded-full font-semibold text-lg transition-all ${
           added
             ? "bg-tertiary text-white"
-            : "bg-gradient-to-br from-primary to-primary-container text-on-primary hover:brightness-110 hover:shadow-[0_8px_24px_rgba(149,65,110,0.3)]"
+            : "bg-linear-to-br from-primary to-primary-container text-on-primary hover:brightness-110 hover:shadow-[0_8px_24px_rgba(149,65,110,0.3)]"
         }`}
       >
         {added ? "✓ Ditambahkan!" : `Tambah ke Keranjang - Rp ${(product.price * quantity).toLocaleString("id-ID")}`}
