@@ -70,14 +70,14 @@ const qualityPillars = [
 const contactItems = [
   {
     label: "WhatsApp",
-    value: "+62 812-3456-7890",
-    href: "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20donat",
+    value: "+6281547190395",
+    href: "https://wa.me/6281547190395?text=Halo,%20saya%20ingin%20memesan%20donat",
     icon: Phone,
   },
   {
     label: "Telepon",
     value: "(021) 1234-5678",
-    href: "tel:+622112345678",
+    href: "tel:+6281547190395",
     icon: Phone,
   },
   {
