@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://donat.alpiant.my.id",
     siteName: "Donatku",
-    title: "Donatku - Donat Premium Artisanal",
+    title: "Donatku - Donat",
     description:
       "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
     locale: "id_ID",
