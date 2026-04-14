@@ -1,0 +1,35 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Soft Shadow -->
+  <circle cx="200" cy="210" r="140" fill="black" fill-opacity="0.1" />
+  
+  <!-- Donut Body (Dough) -->
+  <path d="M200 60C122.68 60 60 122.68 60 200C60 277.32 122.68 340 200 340C277.32 340 340 277.32 340 200C340 122.68 277.32 60 200 60ZM200 245C175.147 245 155 224.853 155 200C155 175.147 175.147 155 200 155C224.853 155 245 175.147 245 200C245 224.853 224.853 245 200 245Z" fill="#D4A373" />
+  
+  <!-- Texture/Details on Dough -->
+  <circle cx="120" cy="180" r="10" fill="#C6915A" fill-opacity="0.5" />
+  <circle cx="280" cy="220" r="15" fill="#C6915A" fill-opacity="0.4" />
+  
+  <!-- Glaze (Strawberry/Pink) -->
+  <path d="M200 70C128.203 70 70 128.203 70 200C70 271.797 128.203 330 200 330C271.797 330 330 271.797 330 200C330 128.203 271.797 70 200 70ZM200 235C180.67 235 165 219.33 165 200C165 180.67 180.67 165 200 165C219.33 165 235 180.67 235 200C235 219.33 219.33 235 200 235Z" fill="#F472B6" />
+  
+  <!-- Glaze Drizzle (White) -->
+  <path d="M110 160C130 140 160 135 190 145C220 155 250 140 270 120" stroke="white" stroke-width="4" stroke-linecap="round" stroke-opacity="0.6" />
+  <path d="M120 240C140 260 170 265 200 255C230 245 260 260 280 280" stroke="white" stroke-width="4" stroke-linecap="round" stroke-opacity="0.4" />
+  
+  <!-- Highlights -->
+  <path d="M100 180C95 150 110 120 140 100" stroke="white" stroke-width="12" stroke-linecap="round" stroke-opacity="0.2" />
+  
+  <!-- Premium Sprinkles (Golden & Silver) -->
+  <rect x="250" y="120" width="14" height="5" rx="2.5" fill="#FDE047" transform="rotate(45 250 120)" />
+  <rect x="280" y="180" width="14" height="5" rx="2.5" fill="#E2E8F0" transform="rotate(-20 280 180)" />
+  <rect x="230" y="260" width="14" height="5" rx="2.5" fill="#FDE047" transform="rotate(60 230 260)" />
+  <rect x="150" y="290" width="14" height="5" rx="2.5" fill="#E2E8F0" transform="rotate(-45 150 290)" />
+  <rect x="100" y="220" width="14" height="5" rx="2.5" fill="#FDE047" transform="rotate(15 100 220)" />
+  <rect x="120" y="140" width="14" height="5" rx="2.5" fill="#E2E8F0" transform="rotate(-30 120 140)" />
+  <rect x="180" y="90" width="14" height="5" rx="2.5" fill="#FDE047" transform="rotate(80 180 90)" />
+  
+  <!-- Small Dots -->
+  <circle cx="210" cy="110" r="3" fill="white" fill-opacity="0.8" />
+  <circle cx="260" cy="230" r="3" fill="white" fill-opacity="0.6" />
+  <circle cx="140" cy="260" r="3" fill="white" fill-opacity="0.7" />
+</svg>
