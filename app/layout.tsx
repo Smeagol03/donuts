@@ -16,7 +16,7 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://donat.alpiant.my.id"),
-  title: "Donatku - Donat Premium",
+  title: "Donatku - Donat",
   description: "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
   alternates: {
     canonical: "/",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Donatku - Donat Premium",
+    title: "Donatku - Donat",
     description:
       "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
   },
