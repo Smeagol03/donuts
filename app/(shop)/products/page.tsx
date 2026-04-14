@@ -18,31 +18,31 @@ const categories: Array<{
   helper: string;
   icon: React.ComponentType<{ className?: string }>;
 }> = [
-  {
-    key: undefined,
-    label: "Semua",
-    helper: "Semua varian",
-    icon: Layers3,
-  },
-  {
-    key: "glazed",
-    label: "Glazed",
-    helper: "Ringan dan klasik",
-    icon: Sparkles,
-  },
-  {
-    key: "filled",
-    label: "Filled",
-    helper: "Isi lebih rich",
-    icon: CakeSlice,
-  },
-  {
-    key: "premium",
-    label: "Premium",
-    helper: "Signature series",
-    icon: Star,
-  },
-];
+    {
+      key: undefined,
+      label: "Semua",
+      helper: "Semua varian",
+      icon: Layers3,
+    },
+    {
+      key: "glazed",
+      label: "Glazed",
+      helper: "Ringan dan klasik",
+      icon: Sparkles,
+    },
+    {
+      key: "filled",
+      label: "Filled",
+      helper: "Isi lebih rich",
+      icon: CakeSlice,
+    },
+    {
+      key: "premium",
+      label: "Premium",
+      helper: "Signature series",
+      icon: Star,
+    },
+  ];
 
 export default async function ProductsPage({
   searchParams,
@@ -89,13 +89,8 @@ export default async function ProductsPage({
                 Product Catalogue
               </p>
               <h1 className="mt-3 font-headline text-4xl text-primary sm:text-5xl">
-                Pilih donat sesuai mood pelanggan.
+                Pilih donat sesuai mood.
               </h1>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-on-surface-variant sm:text-base">
-                Katalog ini saya susun agar filtering lebih cepat dipakai di
-                mobile, produk lebih mudah dipindai, dan aksi checkout tetap
-                dekat dari setiap kartu.
-              </p>
             </div>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -116,25 +111,22 @@ export default async function ProductsPage({
                 <Link
                   key={item.key ?? "all"}
                   href={item.key ? `/products?category=${item.key}` : "/products"}
-                  className={`group inline-flex min-w-[12.5rem] items-center gap-3 rounded-2xl border px-4 py-3 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                    isActive
-                      ? "border-primary bg-primary text-white shadow-lg"
-                      : "border-primary/12 bg-white/85 text-primary hover:border-primary/25 hover:bg-white"
-                  }`}
+                  className={`group inline-flex min-w-50 items-center gap-3 rounded-2xl border px-4 py-3 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${isActive
+                    ? "border-primary bg-primary text-white shadow-lg"
+                    : "border-primary/12 bg-white/85 text-primary hover:border-primary/25 hover:bg-white"
+                    }`}
                 >
                   <span
-                    className={`rounded-xl p-2 ${
-                      isActive ? "bg-white/20" : "bg-primary/8"
-                    }`}
+                    className={`rounded-xl p-2 ${isActive ? "bg-white/20" : "bg-primary/8"
+                      }`}
                   >
                     <Icon className="h-4 w-4" />
                   </span>
                   <span className="leading-tight">
                     <span className="block text-sm font-semibold">{item.label}</span>
                     <span
-                      className={`block text-xs ${
-                        isActive ? "text-white/75" : "text-on-surface-variant"
-                      }`}
+                      className={`block text-xs ${isActive ? "text-white/75" : "text-on-surface-variant"
+                        }`}
                     >
                       {item.helper}
                     </span>

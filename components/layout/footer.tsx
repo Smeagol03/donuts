@@ -22,10 +22,6 @@ export function Footer() {
                 Donatku<span className="text-secondary">.</span>
               </span>
             </Link>
-            <p className="mb-8 max-w-sm text-sm leading-relaxed text-on-surface-variant">
-              Membangun pengalaman rasa yang jujur melalui donat artisanal yang
-              dibuat harian dengan bahan-bahan pilihan terbaik.
-            </p>
             <div className="flex gap-4">
               <SocialLink icon={Camera} href="#" />
               <SocialLink icon={MessageCircle} href="#" />

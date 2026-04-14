@@ -119,7 +119,7 @@ export default function HomePage() {
             <div className="flex flex-col">
               <div className="animate-fade-in group mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-primary/10 bg-white/60 px-4 py-1.5 text-xs font-bold tracking-widest uppercase text-primary shadow-xs backdrop-blur-md transition-all hover:bg-white/80">
                 <Sparkles className="h-3.5 w-3.5 text-secondary" />
-                Premium Artisanal Donuts
+                Premium Donuts
               </div>
 
               <h1 className="max-w-2xl font-headline text-5xl font-bold tracking-tight text-primary sm:text-6xl lg:text-7xl leading-[1.05]">
@@ -127,12 +127,6 @@ export default function HomePage() {
                 <span className="text-secondary italic">hangat</span>, halus,
                 dan layak diingat.
               </h1>
-
-              <p className="mt-8 max-w-lg text-lg leading-relaxed text-on-surface-variant/90">
-                Halaman ini dirancang sebagai storefront yang lebih dewasa:
-                visual bersih, navigasi intuitif, dan produk yang menonjol tanpa
-                kehilangan kehangatan khas toko kami.
-              </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
@@ -172,7 +166,7 @@ export default function HomePage() {
                 <div className="h-10 w-px bg-primary/10" />
                 <div>
                   <div className="font-headline text-3xl font-bold text-primary">
-                    8AM
+                    9 AM
                   </div>
                   <div className="text-xs uppercase tracking-widest text-on-surface-variant/70 mt-1">
                     Open Hours
@@ -267,10 +261,6 @@ export default function HomePage() {
               Pilih mood rasa yang sesuai dengan pelanggan Anda.
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-6 text-on-surface-variant sm:text-base">
-            Saya ubah section kategori menjadi lebih editorial: tiap kartu
-            memberi arah rasa dan langsung mengarahkan user ke listing produk.
-          </p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-3">
@@ -291,14 +281,14 @@ export default function HomePage() {
                 Featured selection
               </p>
               <h2 className="mt-3 font-headline text-4xl text-primary sm:text-5xl">
-                Produk unggulan yang paling cepat menjelaskan kualitas toko.
+                Produk unggulan.
               </h2>
             </div>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-2 text-sm font-extrabold text-primary transition-colors duration-200 hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
-              Lihat semua menu
+              Semua
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -324,11 +314,6 @@ export default function HomePage() {
               <h2 className="mt-4 font-headline text-4xl sm:text-5xl">
                 Pilihan yang paling sering dipesan ulang.
               </h2>
-              <p className="mt-5 max-w-md text-sm leading-7 text-white/80 sm:text-base">
-                Section ini saya jadikan titik konversi kedua. Setelah user
-                melihat hero dan unggulan, mereka langsung diarahkan ke produk
-                yang sudah tervalidasi oleh pembelian berulang.
-              </p>
               <div className="mt-8 space-y-4">
                 <InfoRow
                   label="Cocok untuk"
@@ -362,11 +347,6 @@ export default function HomePage() {
                 Pesan lebih cepat tanpa harus mencari info toko ke banyak
                 tempat.
               </h2>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-on-surface-variant sm:text-base">
-                CTA penutup saya rapikan menjadi satu area kontak yang jelas:
-                WhatsApp untuk order cepat, telepon untuk kebutuhan langsung,
-                dan email untuk kerja sama atau pesanan skala lebih besar.
-              </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
