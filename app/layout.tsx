@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://donat.alpiant.my.id"),
   title: "Donatku - Donat",
   description: "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
+  keywords: ["donat", "donat premium", "donat enak", "artisan donut", "donat fresh"],
+  authors: [{ name: "Donatku" }],
+  creator: "Donatku",
+  publisher: "Donatku",
   alternates: {
     canonical: "/",
   },
@@ -26,15 +30,22 @@ export const metadata: Metadata = {
     url: "https://donat.alpiant.my.id",
     siteName: "Donatku",
     title: "Donatku - Donat",
-    description:
-      "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
+    description: "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
     locale: "id_ID",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Donatku - Donat Premium Artisanal",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Donatku - Donat",
-    description:
-      "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
+    description: "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
@@ -50,6 +61,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
+    apple: [
+      { url: "/favicon.ico" },
+    ],
+  },
+  verification: {
+    google: "", // Add your Google verification code here if needed
   },
 };
 
