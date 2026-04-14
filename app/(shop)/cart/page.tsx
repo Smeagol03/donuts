@@ -75,7 +75,7 @@ _Terima kasih telah berbelanja di Donatku!_`;
     }
 
     const message = generateOrderMessage();
-    const whatsappUrl = generateWhatsAppLink("6281234567890", message);
+    const whatsappUrl = generateWhatsAppLink("6281547190395", message);
     window.open(whatsappUrl, "_blank");
     clearCart();
   };
