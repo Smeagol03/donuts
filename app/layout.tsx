@@ -15,8 +15,47 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://donat.alpiant.my.id"),
   title: "Donatku - Donat Premium Artisanal",
   description: "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://donat.alpiant.my.id",
+    siteName: "Donatku",
+    title: "Donatku - Donat Premium Artisanal",
+    description:
+      "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
+    locale: "id_ID",
+    images: [
+      {
+        url: "https://donat.alpiant.my.id/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Donatku - Donat Premium Artisanal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Donatku - Donat Premium Artisanal",
+    description:
+      "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
+    images: ["https://donat.alpiant.my.id/twitter-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
