@@ -11,7 +11,7 @@ export default function ShopLayout({
     <CartProvider>
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-24 sm:pt-28">{children}</main>
         <Footer />
       </div>
     </CartProvider>

@@ -1,71 +1,164 @@
 import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowUpRight,
+  Camera,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
+} from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-surface-container mt-auto">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold font-headline text-primary mb-4">
-              Donatku
-            </h3>
-            <p className="text-on-surface-variant max-w-md">
-              Donat premium artisanal dengan berbagai varian rasa yang lezat. 
-              Dibuat dengan bahan berkualitas tinggi dan cinta dalam setiap gigitan.
+    <footer className="bg-surface pb-12 pt-24">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 gap-12 border-b border-primary/5 pb-16 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Link href="/" className="group mb-6 flex items-center gap-2">
+              <BrandMark />
+              <span className="font-headline text-2xl font-bold tracking-tight text-primary">
+                Donatku<span className="text-secondary">.</span>
+              </span>
+            </Link>
+            <p className="mb-8 max-w-sm text-sm leading-relaxed text-on-surface-variant">
+              Membangun pengalaman rasa yang jujur melalui donat artisanal yang
+              dibuat harian dengan bahan-bahan pilihan terbaik.
             </p>
+            <div className="flex gap-4">
+              <SocialLink icon={Camera} href="#" />
+              <SocialLink icon={MessageCircle} href="#" />
+              <SocialLink icon={Send} href="#" />
+            </div>
           </div>
 
-          <div>
-            <h4 className="font-semibold text-on-surface mb-4">Tautan</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-on-surface-variant hover:text-primary transition-colors">
-                  Beranda
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="text-on-surface-variant hover:text-primary transition-colors">
-                  Produk
-                </Link>
-              </li>
-              <li>
-                <Link href="/cart" className="text-on-surface-variant hover:text-primary transition-colors">
-                  Keranjang
-                </Link>
-              </li>
+          <div className="md:col-span-2">
+            <h4 className="mb-6 text-xs font-bold uppercase tracking-widest text-primary">
+              Menu
+            </h4>
+            <ul className="space-y-4">
+              <FooterLink href="/">Beranda</FooterLink>
+              <FooterLink href="/products">Produk</FooterLink>
+              <FooterLink href="/cart">Keranjang</FooterLink>
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-semibold text-on-surface mb-4">Kontak</h4>
-            <ul className="space-y-2 text-on-surface-variant">
-              <li className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.85-1.091l-4.244-1.061a.75.75 0 00-.86.325l-.872 1.452a.75.75 0 01-.813.352A10.443 10.443 0 013.1 8.55a.75.75 0 01.352-.813l1.452-.872a.75.75 0 00.325-.86L4.17 3.1a.75.75 0 00-.86-.348A2.25 2.25 0 001.5 4.5v2.25z" />
-                </svg>
+          <div className="md:col-span-2">
+            <h4 className="mb-6 text-xs font-bold uppercase tracking-widest text-primary">
+              Bantuan
+            </h4>
+            <ul className="space-y-4">
+              <FooterLink href="#">FAQ</FooterLink>
+              <FooterLink href="#">Pengiriman</FooterLink>
+              <FooterLink href="#">Kontak Kami</FooterLink>
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <h4 className="mb-6 text-xs font-bold uppercase tracking-widest text-primary">
+              Kontak
+            </h4>
+            <ul className="space-y-4">
+              <li className="group flex cursor-pointer items-start gap-3 text-sm text-on-surface-variant transition-colors hover:text-primary">
+                <Phone className="mt-0.5 h-4 w-4 text-secondary" />
                 <span>+62 812-3456-7890</span>
               </li>
-              <li className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                </svg>
+              <li className="group flex cursor-pointer items-start gap-3 text-sm text-on-surface-variant transition-colors hover:text-primary">
+                <Mail className="mt-0.5 h-4 w-4 text-secondary" />
                 <span>hello@donatku.id</span>
               </li>
-              <li className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-                <span>Lombok Timur</span>
+              <li className="group flex cursor-pointer items-start gap-3 text-sm text-on-surface-variant transition-colors hover:text-primary">
+                <MapPin className="mt-0.5 h-4 w-4 text-secondary" />
+                <span>Jl. Donat No. 123, Selong, Lombok Timur</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 text-center text-on-surface-variant text-sm">
-          <p>© {new Date().getFullYear()} Donatku. Semua hak dilindungi.</p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-6 md:flex-row">
+          <p className="text-xs font-medium text-on-surface-variant/60">
+            (c) {new Date().getFullYear()} Donatku Artisanal. Semua hak
+            dilindungi.
+          </p>
+          <div className="flex items-center gap-8">
+            <Link
+              href="#"
+              className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/40 transition-colors hover:text-primary"
+            >
+              Kebijakan Privasi
+            </Link>
+            <Link
+              href="#"
+              className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/40 transition-colors hover:text-primary"
+            >
+              Syarat & Ketentuan
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="group flex items-center gap-1 text-sm text-on-surface-variant transition-all hover:text-primary"
+      >
+        <span>{children}</span>
+        <ArrowUpRight className="-translate-y-1 translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+      </Link>
+    </li>
+  );
+}
+
+function SocialLink({ icon: Icon, href }: { icon: LucideIcon; href: string }) {
+  return (
+    <Link
+      href={href}
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/10 text-primary transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
+    >
+      <Icon className="h-4 w-4" />
+    </Link>
+  );
+}
+
+function BrandMark() {
+  return (
+    <div
+      className="flex h-8 w-8 items-center justify-center rounded-xl bg-linear-to-br from-primary to-secondary shadow-[0_8px_18px_rgba(146,64,14,0.24)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105"
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 24 24" className="h-4 w-4 text-white" fill="none">
+        <path
+          d="M7 5v14"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M7 5h4.8a6.8 6.8 0 010 14H7"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10.3 9.3h2.1M10.3 14.5h1.6"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
   );
 }

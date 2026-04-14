@@ -1,326 +1,349 @@
-import { getAllProducts } from "@/lib/products";
 import { ProductCard } from "@/components/shop/product-card";
+import { getAllProducts } from "@/lib/products";
 import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
-  Sparkles,
-  Cake,
-  Star,
-  Heart,
+  CakeSlice,
+  Clock3,
+  HeartHandshake,
+  Mail,
   MapPin,
   Phone,
-  Mail,
-  Clock,
-  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  Store,
 } from "lucide-react";
+
+const categories = [
+  {
+    title: "Glazed",
+    description:
+      "Ringan, glossy, dan manis seimbang untuk pelanggan yang suka rasa klasik.",
+    href: "/products?category=glazed",
+    accent: "from-rose-200 via-white to-orange-100",
+    iconWrap: "bg-rose-100 text-rose-700",
+    icon: CakeSlice,
+  },
+  {
+    title: "Filled",
+    description:
+      "Donat isi dengan tekstur lembut dan filling yang terasa penuh di setiap gigitan.",
+    href: "/products?category=filled",
+    accent: "from-amber-200 via-yellow-50 to-white",
+    iconWrap: "bg-amber-100 text-amber-700",
+    icon: HeartHandshake,
+  },
+  {
+    title: "Premium",
+    description:
+      "Pilihan signature dengan bahan lebih kaya, finishing rapi, dan karakter rasa lebih berani.",
+    href: "/products?category=premium",
+    accent: "from-orange-200 via-white to-stone-100",
+    iconWrap: "bg-stone-200 text-stone-700",
+    icon: Star,
+  },
+] as const;
+
+const qualityPillars = [
+  {
+    title: "Freshly glazed",
+    description:
+      "Diproduksi harian dalam batch kecil agar tekstur tetap empuk dan finish tetap rapi.",
+    icon: Sparkles,
+  },
+  {
+    title: "Bahan terpilih",
+    description:
+      "Kami fokus pada rasa bersih, butter notes hangat, dan topping yang tidak berlebihan.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Siap kirim cepat",
+    description:
+      "Cocok untuk snack kantor, hampers, atau repeat order harian tanpa proses yang rumit.",
+    icon: Store,
+  },
+] as const;
+
+const contactItems = [
+  {
+    label: "WhatsApp",
+    value: "+62 812-3456-7890",
+    href: "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20donat",
+    icon: Phone,
+  },
+  {
+    label: "Telepon",
+    value: "(021) 1234-5678",
+    href: "tel:+622112345678",
+    icon: Phone,
+  },
+  {
+    label: "Email",
+    value: "halo@donatpremium.com",
+    href: "mailto:halo@donatpremium.com",
+    icon: Mail,
+  },
+  {
+    label: "Lokasi",
+    value: "Jl. Donat No. 123, Lombok",
+    href: "https://maps.google.com",
+    icon: MapPin,
+  },
+] as const;
 
 export default function HomePage() {
   const products = getAllProducts();
-  const featuredProducts = products.filter((p) => p.featured).slice(0, 4);
-  const bestSellers = products.filter((p) => p.bestSeller);
+  const featuredProducts = products
+    .filter((product) => product.featured)
+    .slice(0, 4);
+  const bestSellers = products
+    .filter((product) => product.bestSeller)
+    .slice(0, 3);
 
   return (
-    <div className="flex flex-col">
-      {/* Hero Section - Anti Mainstream */}
-      <section className="relative py-16 sm:py-20 min-h-[90vh] sm:min-h-[85vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-primary/5 via-background to-secondary/10">
-        {/* Decorative Half Donuts Background - Hidden on mobile, reduced on tablet */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Top Left Cluster - Hidden on small screens */}
-          <div className="hidden lg:block absolute -top-20 -left-20 w-125 h-125 opacity-30">
-            <svg
-              viewBox="0 0 200 200"
-              className="w-full h-full animate-spin-slow"
-              style={{ animationDuration: "60s" }}
-            >
-              <defs>
-                <linearGradient
-                  id="pinkGrad"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stopColor="#F472B6" />
-                  <stop offset="100%" stopColor="#EC4899" />
-                </linearGradient>
-              </defs>
-              <circle cx="100" cy="100" r="90" fill="url(#pinkGrad)" />
-              <circle cx="100" cy="100" r="40" fill="#FEF3C7" />
-            </svg>
-          </div>
+    <div className="overflow-hidden bg-background text-foreground">
+      {/* hero section */}
 
-          {/* Top Right Donut - Reduced size on tablet */}
-          <div className="hidden md:block absolute -top-16 sm:-top-32 right-5 sm:right-10 w-50 sm:w-62.5 md:w-75 opacity-15 md:opacity-20">
-            <div className="animate-float" style={{ animationDelay: "0s" }}>
-              <svg
-                viewBox="0 0 200 200"
-                className="w-full h-full"
-                style={{ transform: "rotate(45deg)" }}
-              >
-                <circle cx="100" cy="100" r="80" fill="#F59E0B" opacity="0.9" />
-                <circle cx="100" cy="100" r="35" fill="#FEF3C7" />
-              </svg>
-            </div>
-          </div>
+      <section className="relative isolate min-h-[92vh] flex items-center">
+        {/* Background elements refined */}
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.18),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(251,146,60,0.15),transparent_30%),linear-gradient(180deg,#fff8eb_0%,#fef3c7_50%,#fff7ed_100%)]" />
+        <div className="absolute left-[-10%] top-[10%] h-100 w-100 rounded-full bg-white/40 blur-[100px]" />
+        <div className="absolute right-[-5%] bottom-[10%] h-87.5 w-87.5 rounded-full bg-secondary/10 blur-[80px]" />
 
-          {/* Right Side Giant Half Donut - Desktop only */}
-          <div className="hidden xl:block absolute -right-50 top-1/4 w-150 h-150 opacity-40">
-            <svg viewBox="0 0 200 200" className="w-full h-full">
-              <defs>
-                <linearGradient
-                  id="purpleGrad"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stopColor="#A78BFA" />
-                  <stop offset="100%" stopColor="#8B5CF6" />
-                </linearGradient>
-              </defs>
-              <circle cx="100" cy="100" r="95" fill="url(#purpleGrad)" />
-              <circle cx="100" cy="100" r="45" fill="#FEF3C7" />
-              <rect x="60" y="30" width="8" height="8" rx="2" fill="#FFD700" />
-              <rect
-                x="120"
-                y="35"
-                width="8"
-                height="10"
-                rx="2"
-                fill="#FF6B6B"
-              />
-              <rect x="45" y="80" width="10" height="6" rx="2" fill="#4ECDC4" />
-            </svg>
-          </div>
-
-          {/* Bottom decorations - Hidden on mobile */}
-          {/* Bottom Left Cluster */}
-          <div className="hidden lg:block absolute -bottom-40 -left-20 w-112.5 h-112.5 opacity-35">
-            <svg
-              viewBox="0 0 200 200"
-              className="w-full h-full"
-              style={{ transform: "rotate(-30deg)" }}
-            >
-              <circle cx="100" cy="100" r="88" fill="#FCD34D" opacity="0.85" />
-              <circle cx="100" cy="100" r="38" fill="#FEF3C7" />
-            </svg>
-          </div>
-
-          {/* Bottom Right Small Donuts - Tablet and up */}
-          <div
-            className="hidden md:block absolute bottom-16 sm:bottom-20 right-10 sm:right-40 w-30 sm:w-45 h-30 sm:h-45 opacity-20 md:opacity-25 animate-float"
-            style={{ animationDelay: "2s" }}
-          >
-            <svg viewBox="0 0 200 200" className="w-full h-full">
-              <circle cx="100" cy="100" r="85" fill="#EC4899" />
-              <circle cx="100" cy="100" r="35" fill="#FEF3C7" />
-            </svg>
-          </div>
-
-          <div
-            className="hidden sm:block absolute bottom-48 md:bottom-60 right-5 md:right-10 w-25 sm:w-30 h-25 sm:h-30 opacity-15 sm:opacity-20 animate-float"
-            style={{ animationDelay: "4s" }}
-          >
-            <svg viewBox="0 0 200 200" className="w-full h-full">
-              <circle cx="100" cy="100" r="80" fill="#F59E0B" />
-              <circle cx="100" cy="100" r="30" fill="#FEF3C7" />
-            </svg>
-          </div>
-
-          {/* Floating Sprinkles - Desktop only */}
-          <div className="hidden xl:block absolute top-1/4 left-1/4 w-4 h-4 bg-pink-400 rounded-full opacity-60 animate-bounce-subtle" />
-          <div
-            className="hidden xl:block absolute top-1/3 right-1/4 w-3 h-3 bg-amber-400 rounded-full opacity-50 animate-bounce-subtle"
-            style={{ animationDelay: "0.5s" }}
-          />
-          <div
-            className="hidden xl:block absolute bottom-1/3 left-1/3 w-5 h-5 bg-violet-400 rounded-full opacity-40 animate-bounce-subtle"
-            style={{ animationDelay: "1s" }}
-          />
-          <div
-            className="hidden xl:block absolute top-1/2 right-1/3 w-3 h-3 bg-yellow-300 rounded-full opacity-50 animate-bounce-subtle"
-            style={{ animationDelay: "1.5s" }}
-          />
-
-          {/* Decorative Circles - Blurred gradient circles */}
-          <div className="absolute top-20 sm:top-40 left-1/4 sm:left-1/3 w-24 sm:w-32 h-24 sm:h-32 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-24 sm:bottom-40 right-1/4 w-32 sm:w-48 h-32 sm:h-48 bg-secondary/10 rounded-full blur-3xl" />
-          <div className="hidden sm:block absolute top-1/3 right-1/4 w-32 sm:w-40 h-32 sm:h-40 bg-tertiary/10 rounded-full blur-3xl" />
-        </div>
-
-        {/* Main Content - Centered */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 bg-white/80 backdrop-blur-md border border-primary/20 rounded-full mb-6 sm:mb-8 shadow-lg animate-fade-in">
-            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
-            <span className="text-xs sm:text-sm font-semibold text-primary">
-              Premium Donuts
-            </span>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tight mb-4 sm:mb-6 leading-tight">
-            <span className="block text-primary">Lezat dalam</span>
-            <span className="block bg-linear-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent mt-1 sm:mt-2">
-              Setiap Gigitan
-            </span>
-          </h1>
-
-          {/* Decorative Line */}
-          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
-            <div className="w-10 sm:w-16 h-0.5 bg-linear-to-r from-transparent to-primary" />
-            <span className="text-3xl sm:text-4xl">🍩</span>
-            <div className="w-10 sm:w-16 h-0.5 bg-linear-to-l from-transparent to-primary" />
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4 sm:px-0">
-            <Link
-              href="/products"
-              className="group inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 bg-primary text-white rounded-full font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 active:scale-95"
-            >
-              <span>Lihat Menu</span>
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="#featured"
-              className="group inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 bg-white/90 backdrop-blur-sm text-primary rounded-full font-bold text-base sm:text-lg transition-all duration-300 hover:bg-white hover:shadow-xl border-2 border-primary/20 active:scale-95"
-            >
-              <span>Produk Unggulan</span>
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:scale-110 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Quick Stats */}
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-16">
-            <div className="text-center group">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-primary mb-0.5 sm:mb-1 group-hover:scale-110 transition-transform">
-                12+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-12 lg:py-20">
+          <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            {/* Left Content: Text Stack */}
+            <div className="flex flex-col">
+              <div className="animate-fade-in group mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-primary/10 bg-white/60 px-4 py-1.5 text-xs font-bold tracking-widest uppercase text-primary shadow-xs backdrop-blur-md transition-all hover:bg-white/80">
+                <Sparkles className="h-3.5 w-3.5 text-secondary" />
+                Premium Artisanal Donuts
               </div>
-              <div className="text-xs sm:text-sm text-on-surface-variant font-medium">
-                Varian Rasa
-              </div>
-            </div>
-            <div className="w-px h-12 sm:h-16 bg-primary/20" />
-            <div className="text-center group">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-primary mb-0.5 sm:mb-1 group-hover:scale-110 transition-transform">
-                100%
-              </div>
-              <div className="text-xs sm:text-sm text-on-surface-variant font-medium">
-                Bahan Asli
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Categories Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-surface">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8 sm:mb-12">
-            <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-medium rounded-full mb-3 sm:mb-4">
-              <Cake className="w-3 h-3" />
-              Kategori
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-headline text-on-surface mb-3 sm:mb-4">
-              Pilihan Varian
-            </h2>
-            <p className="text-sm sm:text-base text-on-surface-variant max-w-2xl mx-auto px-4">
-              Tiga kategori donat spesial untuk memenuhi selera Anda
-            </p>
-          </div>
+              <h1 className="max-w-2xl font-headline text-5xl font-bold tracking-tight text-primary sm:text-6xl lg:text-7xl leading-[1.05]">
+                Donat yang terasa{" "}
+                <span className="text-secondary italic">hangat</span>, halus,
+                dan layak diingat.
+              </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-            <CategoryCard
-              title="Glazed"
-              description="Donat dengan glasir manis yang mengkilap. Sempurna untuk pecinta rasa klasik."
-              icon={<Cake className="w-6 h-6 sm:w-8 sm:h-8" />}
-              href="/products?category=glazed"
-              gradient="from-pink-100 to-rose-50"
-              iconBg="bg-pink-200"
-            />
-            <CategoryCard
-              title="Filled"
-              description="Donat berisi dengan berbagai pilihan filling yang meledak di mulut."
-              icon={<Heart className="w-6 h-6 sm:w-8 sm:h-8" />}
-              href="/products?category=filled"
-              gradient="from-amber-100 to-yellow-50"
-              iconBg="bg-amber-200"
-            />
-            <CategoryCard
-              title="Premium"
-              description="Donat premium dengan bahan eksklusif dan rasa sophisticated."
-              icon={<Star className="w-6 h-6 sm:w-8 sm:h-8" />}
-              href="/products?category=premium"
-              gradient="from-purple-100 to-violet-50"
-              iconBg="bg-purple-200"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      <section id="featured" className="py-12 sm:py-16 lg:py-20 bg-surface-low">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-8 sm:mb-12">
-            <div>
-              <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 bg-primary-container text-on-primary-container text-xs font-medium rounded-full mb-3 sm:mb-4">
-                <Sparkles className="w-3 h-3" />
-                Unggulan
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-headline text-on-surface mb-1 sm:mb-2">
-                Produk Unggulan
-              </h2>
-              <p className="text-sm sm:text-base text-on-surface-variant">
-                Pilihan terbaik dari koleksi kami
+              <p className="mt-8 max-w-lg text-lg leading-relaxed text-on-surface-variant/90">
+                Halaman ini dirancang sebagai storefront yang lebih dewasa:
+                visual bersih, navigasi intuitif, dan produk yang menonjol tanpa
+                kehilangan kehangatan khas toko kami.
               </p>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link
+                  href="/products"
+                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-8 py-4 text-sm font-bold text-white shadow-xl shadow-primary/20 transition-all hover:-translate-y-1 hover:bg-secondary focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                >
+                  <span className="relative z-10">Jelajahi Menu</span>
+                  <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  href="#best-sellers"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-white/40 px-8 py-4 text-sm font-bold text-primary backdrop-blur-md transition-all hover:bg-white/60 hover:border-primary/40"
+                >
+                  Paling Laris
+                </Link>
+              </div>
+
+              {/* Stats moved to a cleaner row with subtle dividers */}
+              <div className="mt-16 flex items-center gap-8 border-t border-primary/10 pt-8">
+                <div>
+                  <div className="font-headline text-3xl font-bold text-primary">
+                    12+
+                  </div>
+                  <div className="text-xs uppercase tracking-widest text-on-surface-variant/70 mt-1">
+                    Varian Rasa
+                  </div>
+                </div>
+                <div className="h-10 w-px bg-primary/10" />
+                <div>
+                  <div className="font-headline text-3xl font-bold text-primary">
+                    100%
+                  </div>
+                  <div className="text-xs uppercase tracking-widest text-on-surface-variant/70 mt-1">
+                    Fresh Daily
+                  </div>
+                </div>
+                <div className="h-10 w-px bg-primary/10" />
+                <div>
+                  <div className="font-headline text-3xl font-bold text-primary">
+                    8AM
+                  </div>
+                  <div className="text-xs uppercase tracking-widest text-on-surface-variant/70 mt-1">
+                    Open Hours
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content: Refined Visual Card */}
+            <div className="relative lg:ml-auto">
+              <div className="absolute -inset-4 rounded-[3rem] bg-white/30 blur-2xl lg:-inset-8" />
+              <div className="relative animate-float aspect-square w-full max-w-120 overflow-hidden rounded-[2.5rem] border border-white/80 bg-linear-to-br from-white/60 to-white/20 p-8 shadow-2xl backdrop-blur-2xl">
+                <div className="flex h-full flex-col justify-between">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60">
+                        Signature Selection
+                      </span>
+                      <h2 className="mt-2 font-headline text-3xl font-bold text-primary leading-tight">
+                        Crafted with <br />
+                        heart & butter.
+                      </h2>
+                    </div>
+                    <div className="rounded-2xl bg-primary/10 p-3 text-primary">
+                      <CakeSlice className="h-6 w-6" />
+                    </div>
+                  </div>
+
+                  <div className="relative my-8 flex flex-1 items-center justify-center">
+                    <div className="absolute h-64 w-64 rounded-full bg-secondary/10 blur-3xl" />
+                    <div className="relative scale-110 lg:scale-125">
+                      <DonutVisual />
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between rounded-2xl bg-primary px-6 py-4 text-white shadow-lg shadow-primary/20">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase tracking-widest text-white/70">
+                        Starting at
+                      </span>
+                      <span className="font-headline text-2xl font-bold">
+                        Rp 18.000
+                      </span>
+                    </div>
+                    <div className="h-8 w-px bg-white/20" />
+                    <div className="flex flex-col items-end">
+                      <span className="text-[10px] uppercase tracking-widest text-white/70">
+                        Texture
+                      </span>
+                      <span className="font-bold">Ultra Soft</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Badge Detail */}
+              <div className="absolute -bottom-6 -left-6 animate-bounce-subtle rounded-2xl border border-white/80 bg-white/90 p-4 shadow-xl backdrop-blur-md">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full bg-secondary/20 p-2 text-secondary">
+                    <Clock3 className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-primary/60">
+                      Delivery
+                    </p>
+                    <p className="text-sm font-bold text-primary">
+                      Ready in 15m
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid gap-4 rounded-[2rem] border border-primary/10 bg-white/70 p-4 shadow-[0_18px_50px_rgba(120,53,15,0.08)] backdrop-blur-sm md:grid-cols-3 md:p-6">
+          {qualityPillars.map((pillar) => (
+            <FeaturePanel key={pillar.title} {...pillar} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-secondary">
+              Explore categories
+            </p>
+            <h2 className="mt-3 font-headline text-4xl text-primary sm:text-5xl">
+              Pilih mood rasa yang sesuai dengan pelanggan Anda.
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-6 text-on-surface-variant sm:text-base">
+            Saya ubah section kategori menjadi lebih editorial: tiap kartu
+            memberi arah rasa dan langsung mengarahkan user ke listing produk.
+          </p>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-3">
+          {categories.map((category) => (
+            <CategoryCard key={category.title} {...category} />
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="featured"
+        className="bg-linear-to-b from-transparent via-white/45 to-transparent py-16"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-secondary">
+                Featured selection
+              </p>
+              <h2 className="mt-3 font-headline text-4xl text-primary sm:text-5xl">
+                Produk unggulan yang paling cepat menjelaskan kualitas toko.
+              </h2>
             </div>
             <Link
               href="/products"
-              className="hidden sm:inline-flex items-center text-primary font-medium hover:text-primary-container transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
-              Lihat Semua
-              <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+              Lihat semua menu
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
-
-          <div className="mt-6 sm:mt-8 text-center sm:hidden">
-            <Link
-              href="/products"
-              className="inline-flex items-center text-primary font-medium hover:text-primary-container transition-colors"
-            >
-              Lihat Semua Produk
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Best Sellers */}
       {bestSellers.length > 0 && (
-        <section className="py-12 sm:py-16 lg:py-20 bg-surface">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-8 sm:mb-12">
-              <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 bg-tertiary-container text-tertiary text-xs font-medium rounded-full mb-3 sm:mb-4">
-                <Star className="w-3 h-3" />
-                Best Seller
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-headline text-on-surface mb-3 sm:mb-4">
-                Favorit Pelanggan
-              </h2>
-              <p className="text-sm sm:text-base text-on-surface-variant max-w-2xl mx-auto px-4">
-                Donat yang paling dicintai oleh pelanggan kami
+        <section
+          id="best-sellers"
+          className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        >
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="rounded-[2rem] bg-primary p-8 text-white shadow-[0_24px_60px_rgba(120,53,15,0.24)]">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/70">
+                Best sellers
               </p>
+              <h2 className="mt-4 font-headline text-4xl sm:text-5xl">
+                Pilihan yang paling sering dipesan ulang.
+              </h2>
+              <p className="mt-5 max-w-md text-sm leading-7 text-white/80 sm:text-base">
+                Section ini saya jadikan titik konversi kedua. Setelah user
+                melihat hero dan unggulan, mereka langsung diarahkan ke produk
+                yang sudah tervalidasi oleh pembelian berulang.
+              </p>
+              <div className="mt-8 space-y-4">
+                <InfoRow
+                  label="Cocok untuk"
+                  value="meeting, gift box, snack table"
+                />
+                <InfoRow label="Karakter" value="aman untuk first order" />
+                <InfoRow
+                  label="Checkout"
+                  value="langsung ke katalog atau WhatsApp"
+                />
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
-              {bestSellers.slice(0, 3).map((product) => (
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {bestSellers.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
@@ -328,194 +351,45 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* Contact Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-linear-to-br from-primary via-primary-container to-secondary-container relative overflow-hidden">
-        {/* Background Pattern - Hidden on mobile for performance */}
-        <div className="hidden sm:block absolute inset-0 opacity-10">
-          <svg
-            className="w-full h-full"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <pattern
-              id="dots"
-              x="0"
-              y="0"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <circle cx="2" cy="2" r="1" fill="white" />
-            </pattern>
-            <rect width="100%" height="100%" fill="url(#dots)" />
-          </svg>
-        </div>
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-primary/10 bg-[linear-gradient(135deg,rgba(255,251,235,0.95),rgba(254,215,170,0.88))] p-8 shadow-[0_24px_60px_rgba(120,53,15,0.12)] sm:p-10 lg:p-12">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-secondary">
+                Order channel
+              </p>
+              <h2 className="mt-3 font-headline text-4xl text-primary sm:text-5xl">
+                Pesan lebih cepat tanpa harus mencari info toko ke banyak
+                tempat.
+              </h2>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-on-surface-variant sm:text-base">
+                CTA penutup saya rapikan menjadi satu area kontak yang jelas:
+                WhatsApp untuk order cepat, telepon untuk kebutuhan langsung,
+                dan email untuk kerja sama atau pesanan skala lebih besar.
+              </p>
 
-        {/* Decorative floating donuts */}
-        <div
-          className="hidden lg:block absolute -top-10 -left-10 w-50 h-50 opacity-15 animate-float"
-          style={{ animationDelay: "0s" }}
-        >
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <circle cx="100" cy="100" r="85" fill="white" />
-            <circle cx="100" cy="100" r="35" fill="#FEF3C7" />
-          </svg>
-        </div>
-        <div
-          className="hidden lg:block absolute -bottom-16 -right-10 w-62.5 h-62.5 opacity-10 animate-float"
-          style={{ animationDelay: "3s" }}
-        >
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <circle cx="100" cy="100" r="90" fill="white" />
-            <circle cx="100" cy="100" r="40" fill="#FEF3C7" />
-          </svg>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-4 sm:mb-6 shadow-lg">
-              <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-on-primary" />
-              <span className="text-xs sm:text-sm font-semibold text-on-primary">
-                Hubungi Kami
-              </span>
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-headline text-on-primary mb-3 sm:mb-4">
-              Pesan Donat Favoritmu
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-on-primary/80 max-w-xl mx-auto">
-              Siap Menerima Pesanan
-            </p>
-          </div>
-
-          {/* Contact Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto mb-10 sm:mb-14">
-            {/* WhatsApp Card */}
-            <a
-              href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20donat"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-black/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 text-center transition-all duration-300 hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1 cursor-pointer"
-            >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  className="w-6 h-6 sm:w-7 sm:h-7 text-white"
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/products"
+                  className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.684 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-              </div>
-              <h3 className="text-base sm:text-lg font-bold font-headline text-on-primary mb-1">
-                WhatsApp
-              </h3>
-              <p className="text-xs sm:text-sm text-on-primary/70">
-                +62 812-3456-7890
-              </p>
-            </a>
-
-            {/* Phone Card */}
-            <div className="bg-black/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 text-center transition-all duration-300 hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1 cursor-pointer">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Phone className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-              </div>
-              <h3 className="text-base sm:text-lg font-bold font-headline text-on-primary mb-1">
-                Telepon
-              </h3>
-              <p className="text-xs sm:text-sm text-on-primary/70">
-                (021) 1234-5678
-              </p>
-            </div>
-
-            {/* Email Card */}
-            <div className="bg-black/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 text-center transition-all duration-300 hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1 cursor-pointer">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-red-500/20 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Mail className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-              </div>
-              <h3 className="text-base sm:text-lg font-bold font-headline text-on-primary mb-1">
-                Email
-              </h3>
-              <p className="text-xs sm:text-sm text-on-primary/70">
-                halo@donatpremium.com
-              </p>
-            </div>
-
-            {/* Location Card */}
-            <div className="bg-black/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 text-center transition-all duration-300 hover:bg-white/25 hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1 cursor-pointer">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
-                <MapPin className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-              </div>
-              <h3 className="text-base sm:text-lg font-bold font-headline text-on-primary mb-1">
-                Lokasi
-              </h3>
-              <p className="text-xs sm:text-sm text-on-primary/70">
-                Jl. Donat No. 123, Lombok
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom Info Row */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 max-w-3xl mx-auto">
-            {/* Operating Hours */}
-            <div className="flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-sm border border-white/15 rounded-full px-4 sm:px-5 py-2.5 sm:py-3">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-black/70" />
-              <div>
-                <p className="text-xs sm:text-sm font-semibold text-black">
-                  Buka Setiap Hari
-                </p>
-                <p className="text-[10px] sm:text-xs text-black/60">
-                  08:00 - 21:00 WIB
-                </p>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="hidden sm:block w-px h-8 bg-white/20" />
-
-            {/* Social Media */}
-            <div className="flex items-center gap-3">
-              <span className="text-xs sm:text-sm text-black font-medium">
-                Ikuti Kami
-              </span>
-              <div className="flex gap-2">
+                  Buka katalog
+                </Link>
                 <a
-                  href="https://instagram.com/donatpremium"
+                  href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20donat"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-white/25 hover:scale-110 cursor-pointer"
+                  className="inline-flex items-center justify-center rounded-full border border-primary/15 bg-white/80 px-6 py-3.5 text-sm font-semibold text-primary transition-colors duration-200 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-black"
-                  >
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
-                </a>
-                <a
-                  href="https://tiktok.com/@donatpremium"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-white/25 hover:scale-110 cursor-pointer"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-black"
-                  >
-                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46v-7.13a8.16 8.16 0 005.58 2.2v-3.45a4.85 4.85 0 01-3-.69v.01z" />
-                  </svg>
+                  Pesan via WhatsApp
                 </a>
               </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {contactItems.map((item) => (
+                <ContactCard key={item.label} {...item} />
+              ))}
             </div>
           </div>
         </div>
@@ -524,42 +398,146 @@ export default function HomePage() {
   );
 }
 
-function CategoryCard({
+function FeaturePanel({
   title,
   description,
-  icon,
-  href,
-  gradient,
-  iconBg,
+  icon: Icon,
 }: {
   title: string;
   description: string;
-  icon: React.ReactNode;
-  href: string;
-  gradient: string;
-  iconBg: string;
+  icon: LucideIcon;
 }) {
   return (
-    <Link href={href} className="group block">
-      <div
-        className={`p-5 sm:p-8 bg-linear-to-br ${gradient} rounded-xl sm:rounded-2xl transition-all duration-300 hover:shadow-[0_12px_32px_rgba(149,65,110,0.08)] hover:-translate-y-1 h-full`}
-      >
-        <div
-          className={`w-12 h-12 sm:w-16 sm:h-16 ${iconBg} rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 text-on-surface group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}
-        >
-          {icon}
+    <div className="rounded-[1.5rem] border border-primary/8 bg-surface p-5 transition-transform duration-300 hover:-translate-y-0.5">
+      <div className="flex items-start gap-4">
+        <div className="rounded-2xl bg-primary/8 p-3 text-primary">
+          <Icon className="h-5 w-5" />
         </div>
-        <h3 className="text-lg sm:text-xl font-bold font-headline text-on-surface mb-1.5 sm:mb-2 group-hover:text-primary transition-colors duration-300">
-          {title}
-        </h3>
-        <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-          {description}
-        </p>
-        <div className="mt-3 sm:mt-4 flex items-center text-primary text-xs sm:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Lihat Produk
-          <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+        <div>
+          <h3 className="font-headline text-2xl text-primary">{title}</h3>
+          <p className="mt-2 text-sm leading-6 text-on-surface-variant">
+            {description}
+          </p>
         </div>
       </div>
+    </div>
+  );
+}
+
+function CategoryCard({
+  title,
+  description,
+  href,
+  accent,
+  iconWrap,
+  icon: Icon,
+}: {
+  title: string;
+  description: string;
+  href: string;
+  accent: string;
+  iconWrap: string;
+  icon: LucideIcon;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`group relative overflow-hidden rounded-[2rem] border border-primary/10 bg-linear-to-br ${accent} p-6 shadow-[0_16px_40px_rgba(120,53,15,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(120,53,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
+    >
+      <div className="absolute right-0 top-0 h-32 w-32 translate-x-10 -translate-y-10 rounded-full bg-white/50 blur-2xl transition-transform duration-300 group-hover:scale-110" />
+      <div className={`inline-flex rounded-[1.25rem] p-3 ${iconWrap}`}>
+        <Icon className="h-6 w-6" />
+      </div>
+      <h3 className="mt-6 font-headline text-3xl text-primary">{title}</h3>
+      <p className="mt-3 max-w-sm text-sm leading-7 text-on-surface-variant">
+        {description}
+      </p>
+      <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+        Lihat kategori
+        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+      </div>
     </Link>
+  );
+}
+
+function ContactCard({
+  label,
+  value,
+  href,
+  icon: Icon,
+}: {
+  label: string;
+  value: string;
+  href: string;
+  icon: LucideIcon;
+}) {
+  return (
+    <a
+      href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      className="group rounded-[1.5rem] border border-primary/10 bg-white/75 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+    >
+      <div className="flex items-start gap-4">
+        <div className="rounded-2xl bg-primary/8 p-3 text-primary">
+          <Icon className="h-5 w-5" />
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-primary">{label}</p>
+          <p className="mt-1 text-sm leading-6 text-on-surface-variant">
+            {value}
+          </p>
+        </div>
+      </div>
+    </a>
+  );
+}
+
+function InfoRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-3 text-sm">
+      <span className="text-white/65">{label}</span>
+      <span className="text-right font-medium text-white">{value}</span>
+    </div>
+  );
+}
+
+function DonutVisual() {
+  return (
+    <div className="relative flex aspect-[1.05/1] items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.2),transparent_40%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18),transparent_18%),radial-gradient(circle_at_80%_70%,rgba(255,255,255,0.12),transparent_20%)]" />
+      <svg
+        viewBox="0 0 240 240"
+        className="relative h-52 w-52 drop-shadow-[0_24px_34px_rgba(0,0,0,0.28)]"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="donutBase" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FED7AA" />
+            <stop offset="100%" stopColor="#F59E0B" />
+          </linearGradient>
+          <linearGradient id="donutGlaze" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFF7ED" />
+            <stop offset="100%" stopColor="#FDBA74" />
+          </linearGradient>
+        </defs>
+        <circle cx="120" cy="126" r="74" fill="#7C2D12" opacity="0.18" />
+        <circle cx="120" cy="118" r="74" fill="url(#donutBase)" />
+        <path
+          d="M55 113c0-40 29-69 65-69 17 0 32 5 44 14 8 6 14 15 19 24-11-5-23-7-36-7-16 0-33 4-50 11-18 8-31 10-38 8-2 7-4 13-4 19z"
+          fill="url(#donutGlaze)"
+          opacity="0.92"
+        />
+        <circle cx="120" cy="118" r="31" fill="#8B4513" opacity="0.28" />
+        <circle cx="120" cy="116" r="30" fill="#FFF7ED" />
+        <ellipse cx="90" cy="88" rx="16" ry="8" fill="#FFFFFF" opacity="0.38" />
+        <rect x="82" y="58" width="10" height="5" rx="2.5" fill="#FB7185" />
+        <rect x="108" y="52" width="8" height="6" rx="3" fill="#FCD34D" />
+        <rect x="136" y="63" width="9" height="5" rx="2.5" fill="#FDBA74" />
+        <rect x="159" y="93" width="10" height="5" rx="2.5" fill="#FBBF24" />
+        <rect x="72" y="132" width="9" height="5" rx="2.5" fill="#F59E0B" />
+        <rect x="147" y="145" width="10" height="5" rx="2.5" fill="#FB7185" />
+      </svg>
+    </div>
   );
 }

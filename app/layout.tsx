@@ -17,6 +17,10 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   title: "Donatku - Donat Premium Artisanal",
   description: "Donat premium dengan berbagai varian rasa yang lezat. Pesan sekarang untuk pengalaman rasa yang tak terlupakan.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

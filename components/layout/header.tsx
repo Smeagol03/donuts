@@ -15,7 +15,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -23,50 +23,45 @@ export function Header() {
 
   return (
     <>
-      <header 
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled 
-            ? "bg-white/90 backdrop-blur-xl shadow-[0_4px_20px_rgba(149,65,110,0.1)] py-3" 
-            : "bg-transparent py-5"
-        )}
-      >
-        <div className="container mx-auto px-4 sm:px-6">
+      <div className="fixed top-0 left-0 right-0 z-50 px-4 py-4 pointer-events-none">
+        <header 
+          className={cn(
+            "mx-auto max-w-7xl w-full transition-all duration-500 pointer-events-auto rounded-full border border-white/40",
+            isScrolled 
+              ? "bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(146,64,14,0.12)] py-2.5 px-6" 
+              : "bg-transparent py-4 px-2 border-transparent"
+          )}
+        >
           <nav className="flex items-center justify-between">
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-2.5 group shrink-0"
             >
-              <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-primary-container flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <svg viewBox="0 0 24 24" className="w-6 h-6 text-white" fill="none">
-                  <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="4" />
-                  <circle cx="12" cy="12" r="4" fill="currentColor" />
-                </svg>
-              </div>
-              <span className="text-2xl font-bold font-headline tracking-tight text-primary group-hover:text-primary-container transition-colors">
-                Donatku
+              <BrandMark className="transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105" />
+              <span className="text-xl font-headline font-bold tracking-tight text-primary transition-colors">
+                Donatku<span className="text-secondary text-2xl leading-none">.</span>
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center bg-primary/5 rounded-full px-1.5 py-1">
               <NavLink href="/">Beranda</NavLink>
               <NavLink href="/products">Produk</NavLink>
               <NavLink href="/cart">Keranjang</NavLink>
             </div>
 
-            {/* Cart Button & Mobile Menu */}
-            <div className="flex items-center gap-3">
+            {/* Right Side: Cart & Mobile Toggle */}
+            <div className="flex items-center gap-2">
               <Link
                 href="/cart"
-                className="relative inline-flex items-center justify-center h-11 px-4 bg-linear-to-br from-primary to-primary-container text-on-primary rounded-full font-medium transition-all hover:brightness-110 hover:shadow-lg hover:shadow-primary/30 active:scale-95"
+                className="relative group flex h-10 items-center gap-2 rounded-full bg-primary px-5 text-sm font-bold text-white transition-all hover:bg-secondary hover:shadow-lg hover:shadow-primary/20 active:scale-95"
               >
-                <ShoppingBag className="w-5 h-5" />
-                <span className="ml-2 hidden sm:inline">Keranjang</span>
+                <ShoppingBag className="w-4 h-4 transition-transform group-hover:-rotate-12" />
+                <span className="hidden sm:inline">Bag</span>
                 {itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-tertiary text-white text-xs font-bold rounded-full flex items-center justify-center animate-bounce">
-                    {itemCount > 9 ? "9+" : itemCount}
+                  <span className="absolute -top-1 -right-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-secondary px-1 text-[10px] font-black text-white ring-2 ring-white">
+                    {itemCount}
                   </span>
                 )}
               </Link>
@@ -74,24 +69,24 @@ export function Header() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-full hover:bg-surface-container transition-colors"
+                className="flex h-10 w-10 md:hidden items-center justify-center rounded-full bg-white/50 text-primary transition-colors hover:bg-white focus:outline-none"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6 text-on-surface" />
+                  <X className="w-5 h-5" />
                 ) : (
-                  <Menu className="w-6 h-6 text-on-surface" />
+                  <Menu className="w-5 h-5" />
                 )}
               </button>
             </div>
           </nav>
-        </div>
-      </header>
+        </header>
+      </div>
 
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden",
+          "fixed inset-0 z-40 bg-primary/20 backdrop-blur-md transition-opacity duration-500 md:hidden",
           isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
         onClick={() => setIsMobileMenuOpen(false)}
@@ -100,32 +95,36 @@ export function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed top-0 right-0 bottom-0 z-50 w-72 bg-white shadow-2xl transition-transform duration-300 ease-out md:hidden",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed top-4 right-4 bottom-4 z-50 w-72 origin-right overflow-hidden rounded-[2.5rem] bg-white shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] md:hidden",
+          isMobileMenuOpen ? "translate-x-0 scale-100 opacity-100" : "translate-x-12 scale-95 opacity-0 pointer-events-none"
         )}
       >
-        <div className="p-6 pt-20">
-          <nav className="flex flex-col gap-4">
-            <MobileNavLink href="/" onClick={() => setIsMobileMenuOpen(false)}>
-              Beranda
-            </MobileNavLink>
-            <MobileNavLink href="/products" onClick={() => setIsMobileMenuOpen(false)}>
-              Produk
-            </MobileNavLink>
-            <MobileNavLink href="/cart" onClick={() => setIsMobileMenuOpen(false)}>
-              Keranjang
-              {itemCount > 0 && (
-                <span className="ml-2 px-2 py-0.5 bg-primary text-white text-xs rounded-full">
-                  {itemCount}
-                </span>
-              )}
-            </MobileNavLink>
-          </nav>
+        <div className="flex h-full flex-col p-8 pt-16">
+          <div className="mb-8 border-b border-primary/5 pb-8">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-primary/40 mb-4">Menu</p>
+            <nav className="flex flex-col gap-2">
+              <MobileNavLink href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                Beranda
+              </MobileNavLink>
+              <MobileNavLink href="/products" onClick={() => setIsMobileMenuOpen(false)}>
+                Produk
+              </MobileNavLink>
+              <MobileNavLink href="/cart" onClick={() => setIsMobileMenuOpen(false)}>
+                Keranjang
+              </MobileNavLink>
+            </nav>
+          </div>
+          
+          <div className="mt-auto rounded-3xl bg-primary/5 p-6">
+            <p className="text-xs font-bold text-primary mb-2">Butuh Bantuan?</p>
+            <p className="text-xs text-on-surface-variant leading-relaxed">
+              Hubungi kami via WhatsApp untuk respon cepat.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Spacer for fixed header */}
-      <div className="h-20" />
+      {/* Spacer removed for floating header effect, using padding on main if needed */}
     </>
   );
 }
@@ -135,9 +134,8 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     <Link
       href={href}
       className={cn(
-        "relative text-sm font-medium text-on-surface-variant hover:text-primary transition-colors py-2",
-        "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-linear-to-r after:from-primary after:to-primary-container",
-        "after:transition-all after:duration-300 hover:after:w-full"
+        "relative rounded-full px-5 py-2 text-sm font-bold text-primary/70 transition-all hover:text-primary",
+        "hover:bg-white/50"
       )}
     >
       {children}
@@ -162,5 +160,39 @@ function MobileNavLink({
     >
       {children}
     </Link>
+  );
+}
+
+function BrandMark({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-primary to-secondary shadow-[0_8px_20px_rgba(146,64,14,0.25)]",
+        className
+      )}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-white" fill="none">
+        <path
+          d="M7 5v14"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M7 5h4.8a6.8 6.8 0 010 14H7"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10.3 9.3h2.1M10.3 14.5h1.6"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
   );
 }
