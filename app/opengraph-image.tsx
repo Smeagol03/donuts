@@ -171,11 +171,12 @@ export default function OpenGraphImage() {
               fontWeight: 900,
               color: "#78350f",
               letterSpacing: "-0.04em",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            Manisnya
-            <br />
-            Hari Ini.
+            <span>Manisnya</span>
+            <span>Hari Ini.</span>
           </h1>
           <p
             style={{

@@ -46,6 +46,7 @@ export default function TwitterImage() {
               height: 400,
               opacity: 0.1,
               transform: "rotate(-15deg)",
+              display: "flex",
             }}
           >
              <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,12 +76,15 @@ export default function TwitterImage() {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              <span style={{ fontSize: 24, color: "#b45309", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+              <span style={{ display: "flex", fontSize: 24, color: "#b45309", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
                 Premium Artisanal
               </span>
-              <h2 style={{ margin: 0, fontSize: 80, lineHeight: 1.05, fontWeight: 900, color: "#78350f", letterSpacing: "-0.05em" }}>
-                Kelezatan Nyata<br />di Setiap Gigitan.
-              </h2>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <div style={{ display: "flex", flexDirection: "column", margin: 0, fontSize: 80, lineHeight: 1.05, fontWeight: 900, color: "#78350f", letterSpacing: "-0.05em" }}>
+                  <span>Kelezatan Nyata</span>
+                  <span>di Setiap Gigitan.</span>
+                </div>
+              </div>
             </div>
 
             <p style={{ margin: 0, fontSize: 28, fontWeight: 700, color: "#92400e" }}>
@@ -97,7 +101,7 @@ export default function TwitterImage() {
               width: 400,
             }}
           >
-             <div style={{ transform: "rotate(10deg)", filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.12))" }}>
+             <div style={{ transform: "rotate(10deg)", filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.12))", display: "flex" }}>
                 <svg width="350" height="350" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M200 60C122.68 60 60 122.68 60 200C60 277.32 122.68 340 200 340C277.32 340 340 277.32 340 200C340 122.68 277.32 60 200 60ZM200 245C175.147 245 155 224.853 155 200C155 175.147 175.147 155 200 155C224.853 155 245 175.147 245 200C245 224.853 224.853 245 200 245Z" fill="#D4A373" />
                   <path d="M200 70C128.203 70 70 128.203 70 200C70 271.797 128.203 330 200 330C271.797 330 330 271.797 330 200C330 128.203 271.797 70 200 70ZM200 235C180.67 235 165 219.33 165 200C165 180.67 180.67 165 200 165C219.33 165 235 180.67 235 200C235 219.33 219.33 235 200 235Z" fill="#60A5FA" />
